@@ -4,7 +4,7 @@ const fs = require("fs");
 const multer = require("multer");
 const fse = require('fs-extra');
 const httpPort = 80;
-let VERSION = "06";
+let VERSION = "VER";
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -19,11 +19,11 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, "public", VERSION)));
 
-app.get("/", function (req, res) {
+app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "public", VERSION, "index.html"));
 });
 
-const UPLOAD_PATH = path.join(__dirname, "public", "videos");
+const UPLOAD_PATH = path.join(__dirname, "public", VERSION, "uploads");
 
 var uploadSnaps = multer({
     storage: multer.diskStorage({
@@ -50,7 +50,7 @@ app.post("/saveSnap",  function(req, res) {
         } else {
             console.log(req.body);
             res.json({success: true, id: req.body.id});
-            if(VERSION === "06") await sendPushNotifications(req.body.title);
+            if(VERSION === "VER") await sendPushNotifications(req.body.title);
         }
     });
 });
