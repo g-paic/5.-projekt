@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "serve": "node server.js",
+    "ver06": "SET VER=VIDEOS && nodemon --inspect server.js",
     "gen-vapid": "web-push generate-vapid-keys"
   },
   "author": "gpaic",
