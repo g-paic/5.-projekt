@@ -4,7 +4,7 @@ const fs = require("fs");
 const multer = require("multer");
 const fse = require('fs-extra');
 const httpPort = 80;
-let VERSION = "VIDEOS";
+let VERSION = "06";
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -50,7 +50,7 @@ app.post("/saveSnap",  function(req, res) {
         } else {
             console.log(req.body);
             res.json({success: true, id: req.body.id});
-            if(VERSION === "VIDEOS") await sendPushNotifications(req.body.title);
+            if(VERSION === "06") await sendPushNotifications(req.body.title);
         }
     });
 });
