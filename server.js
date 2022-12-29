@@ -23,7 +23,7 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "public", VERSION, "index.html"));
 });
 
-const UPLOAD_PATH = path.join(__dirname, "public", VERSION, "uploads");
+const UPLOAD_PATH = path.join(__dirname, "public", "videos");
 
 var uploadSnaps = multer({
     storage: multer.diskStorage({
