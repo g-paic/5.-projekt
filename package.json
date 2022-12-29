@@ -1,0 +1,19 @@
+{
+  "name": "pwa-examples",
+  "version": "1.0.0",
+  "description": "PWA examples used in lectures in Advanced web developmen course @FER",
+  "main": "server.js",
+  "scripts": {
+    "serve": "node server.js",
+    "gen-vapid": "web-push generate-vapid-keys" 
+  },
+  "author": "gpaic",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs-extra": "^10.0.0",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.12",
+    "web-push": "^3.4.5"
+  }
+}
