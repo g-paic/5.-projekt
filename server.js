@@ -6,6 +6,9 @@ const fse = require('fs-extra');
 const httpPort = 80;
 let VERSION = "VER";
 
+const dotenv = require("dotenv");
+dotenv.config();
+
 const app = express();
 app.use(express.json());
 
@@ -101,6 +104,18 @@ async function sendPushNotifications(snapTitle) {
     });
 }
 
-app.listen(httpPort, function() {
-    console.log(`HTTP listening on port: ${httpPort}`);
-});
+const host = 'localhost';
+
+const externalUrl = process.env.RENDER_EXTERNAL_URL;
+const port = externalUrl && process.env.PORT ? parseInt(process.env.PORT) : 80;
+
+if(externalUrl) {
+    const hostname = '127.0.0.1';
+    app.listen(port, hostname, () => {
+        console.log(`Server locally running at http://${hostname}:${port}/ and from outside on ${externalUrl}`);
+    });
+} else {
+    app.listen(port, host, () => {
+        console.log(`Server running at http://${host}:${port}/`);
+    });
+}
