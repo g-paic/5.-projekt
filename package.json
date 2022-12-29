@@ -5,11 +5,12 @@
   "main": "server.js",
   "scripts": {
     "serve": "node server.js",
-    "gen-vapid": "web-push generate-vapid-keys" 
+    "gen-vapid": "web-push generate-vapid-keys"
   },
   "author": "gpaic",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "fs-extra": "^10.0.0",
     "multer": "^1.4.3",
