@@ -147,7 +147,7 @@ document.getElementById("btnUpload").addEventListener("click", function(event) {
     event.preventDefault();
 
     if(!snapName.value.trim()) {
-        alert("Give it a cathcy name!");
+        alert("The video needs a name");
         return false;
     }
 
